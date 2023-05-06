@@ -25,12 +25,11 @@ def do_pack():
     pack prototype
     """
 
-    #date = datetime.now()
     archive_folder = strftime("%Y%m%d%H%M%S")
     try:
         local("mkdir -p versions")
         local("tar -czvf versions/web_static_{}.tgz web_static/"
-                .format(archive_folder))
+              .format(archive_folder))
         return "versions/web_static_{}.tgz".format(archive_folder)
     except Exception as a:
         return None
