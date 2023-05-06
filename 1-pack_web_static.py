@@ -16,7 +16,7 @@ Otherwise, it should return None
 """
 
 import os
-from datetime import datetime
+from time import strftime
 from fabric.api import local
 
 
@@ -25,12 +25,12 @@ def do_pack():
     pack prototype
     """
 
-    date = datetime.now()
-    archive_folder = f"versions/web_static_{date.year},\
-            {date.month},{date.day},{date.hour},{date.minute},{date.second}"
+    #date = datetime.now()
+    archive_folder = strftime("%Y%m%d%H%M%S")
     try:
         local("mkdir -p versions")
-        local("tar -czvf archive_folder.tgz web_static/")
-        return archive_folder
+        local("tar -czvf versions/web_static_{}.tgz web_static/"
+                .format(archive_folder))
+        return "versions/web_static_{}.tgz".format(archive_folder)
     except Exception as a:
         return None
