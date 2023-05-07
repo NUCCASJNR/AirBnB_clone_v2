@@ -9,7 +9,6 @@ from fabric.api import *
 
 
 env.hosts = ['ubuntu@54.87.207.177', 'ubuntu@18.209.180.49']
-env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
