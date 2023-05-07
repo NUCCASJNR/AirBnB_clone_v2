@@ -22,16 +22,17 @@ def do_deploy(archive_path):
     try:
         put(archive_path, '/tmp/')
         splited = archive_path.split(".")[0].split("/")[-1]
-        run('sudo mkdir -p /data/web_static/releases/{}'.format(splited))
-        run(f'sudo tar -xzvf /tmp/{splited}.tgz -C\
-                /data/web_static/releases/{splited}/')
-        run(f"sudo rm /tmp/{splited}.tgz")
-        run(f"sudo mv /data/web_static/releases/{splited}/web_static/*\
-                /data/web_static/releases/{splited}")
-        run(f"sudo rm -rf /data/web_static/releases/{splited}/web_static/")
+        run("sudo mkdir -p /data/web_static/releases/{}".format(splited))
+        run("sudo tar -xzvf /tmp/{}.tgz -C\
+                /data/web_static/releases/{}/".format(splited, splited))
+        run("sudo rm /tmp/{}.tgz".format(splited))
+        run("sudo mv /data/web_static/releases/{}/web_static/*\
+                /data/web_static/releases/{}".format(splited, splited))
+        run("sudo rm -rf /data/web_static/releases/\
+                {}/web_static/".format(splited))
         run(f"sudo rm -rf /data/web_static/current")
-        run(f"sudo ln -s /data/web_static/releases/{splited}\
-                /data/web_static/current")
+        run("sudo ln -s /data/web_static/releases/{}\
+                /data/web_static/current".format(splited))
         return True
     except Exception as e:
         return False
