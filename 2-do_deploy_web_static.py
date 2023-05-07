@@ -33,5 +33,5 @@ def do_deploy(archive_path):
                 /data/web_static/current")
         print(f"New version deployed!")
         return True
-    except:
+    except Exception as e:
         return False
