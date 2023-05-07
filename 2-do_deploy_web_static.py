@@ -4,7 +4,7 @@
 
 import os
 from time import strftime
-from fabric.api import *
+from fabric.api import env, run, put
 
 
 env.hosts = ['54.87.207.177', '18.209.180.49']
