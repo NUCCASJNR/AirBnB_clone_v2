@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""distributes an archive to my web servers"""
+"""Distribute an archive file  to the web servers"""
 
 import os
 from fabric.api import *
@@ -11,7 +11,7 @@ env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
-    """distributes an archive to my web servers"""
+    """Distribute an archive to the web servers"""
 
     if not os.path.exists(archive_path):
         return False
