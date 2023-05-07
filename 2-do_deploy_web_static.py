@@ -31,4 +31,4 @@ def do_deploy(archive_path):
                 /data/web_static/current".format(splited))
     return True
     except Exception as e:
-        return None
+        return False
