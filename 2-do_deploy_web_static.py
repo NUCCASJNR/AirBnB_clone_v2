@@ -16,6 +16,7 @@ def do_deploy(archive_path):
     """Args:
             archive_path: path to the archive file
     """
+
     if os.path.exists(archive_path) is False:
         return False
     try:
