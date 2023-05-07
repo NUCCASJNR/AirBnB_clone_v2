@@ -64,12 +64,13 @@ def do_deploy(archive_path):
         run(f'sudo tar -xzvf /tmp/{splited}.tgz -C\
                 /data/web_static/releases/{splited}/')
         run(f"sudo rm /tmp/{splited}.tgz")
-        run(f"sudo mv /data/web_static/releases/{splited}/web_static/*\
+        run(f"sudo cp -R -r /data/web_static/releases/{splited}/web_static/*\
                 /data/web_static/releases/{splited}")
+        run(f"sudo rm -rf /data/web_static/releases/{splited}/web_static/")
         run(f"sudo rm -rf /data/web_static/releases/{splited}/web_static/")
         run(f"sudo rm -rf /data/web_static/current")
         run(f"sudo ln -s /data/web_static/releases/{splited}\
                 /data/web_static/current")
         print(f"New version deployed!")
     else:
-        return False
+          return False
