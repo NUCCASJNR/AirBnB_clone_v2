@@ -9,7 +9,7 @@ from fabric.api import *
 
 
 env.hosts = ['ubuntu@54.87.207.177', 'ubuntu@18.209.180.49']
-
+env.password = os.environ['password']
 
 def do_deploy(archive_path):
     """
@@ -30,6 +30,7 @@ def do_deploy(archive_path):
         run(f"sudo rm -rf /data/web_static/current")
         run(f"sudo ln -s /data/web_static/releases/{splited}\
                 /data/web_static/current")
+        return True
         print(f"New version deployed!")
     else:
         return False
