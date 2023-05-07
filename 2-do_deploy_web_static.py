@@ -29,6 +29,6 @@ def do_deploy(archive_path):
         run(f"sudo rm -rf /data/web_static/current")
         run("sudo ln -s /data/web_static/releases/{}\
                 /data/web_static/current".format(splited))
-        return True
+    return True
     except Exception as e:
         return None
