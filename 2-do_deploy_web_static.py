@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """deploy to my both servers
 """
+
 import os
 from time import strftime
 from fabric.api import *
