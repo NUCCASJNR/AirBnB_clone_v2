@@ -2,7 +2,7 @@
 """Deploys a full archive to the server"""
 
 import os
-from fabric.api import *
+from fabric.api import env, put, run
 from time import strftime
 
 env.hosts = ['18.209.180.49', '54.87.207.177']
