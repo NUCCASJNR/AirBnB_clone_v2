@@ -14,16 +14,17 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    splited = archive_path.split(".")[0].split("/")[-1]
+    splited = archive_path.split(".")[0]
+    name = archive_path.split("/")[-1]
     if put(archive_path, '/tmp/').failed:
         return False
     if run("sudo mkdir -p /data/web_static/releases/{}".format(splited))\
             .failed:
         return False
     if run("sudo tar -xzvf /tmp/{}.tgz -C /data/web_static/\
-            releases/{}/".format(splited, splited)).failed:
+            releases/{}/".format(name, splited)).failed:
         return False
-    if run("sudo rm /tmp/{}.tgz".format(splited)).failed:
+    if run("sudo rm /tmp/{}.tgz".format(name)).failed:
         return False
     if run("sudo mv /data/web_static/releases/{}/web_static/*\
                 /data/web_static/releases/{}".format(splited, splited)).failed:
