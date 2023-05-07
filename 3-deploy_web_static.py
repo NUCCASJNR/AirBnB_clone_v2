@@ -53,4 +53,5 @@ def deploy():
     """Deploys a full archive to the server"""
     file = do_pack()
     if file is None:
-        return do_deploy(file)
+        return none
+    return do_deploy(file)
