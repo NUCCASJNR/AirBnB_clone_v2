@@ -13,7 +13,8 @@ env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
-    """deploy to the server
+    """
+    deploy to the server
     using do_deploy"""
 
     if not os.path.exists(archive_path):
