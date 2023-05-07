@@ -6,8 +6,6 @@ deploy to my both servers
 import os
 from time import strftime
 from fabric.api import *
-# from fabric import Connection, task
-import sys
 
 
 env.hosts = ['ubuntu@54.87.207.177', 'ubuntu@18.209.180.49']
@@ -26,7 +24,7 @@ def do_deploy(archive_path):
         run(f'sudo tar -xzvf /tmp/{splited}.tgz -C\
                 /data/web_static/releases/{splited}/')
         run(f"sudo rm /tmp/{splited}.tgz")
-        run(f"sudo cp -R -r /data/web_static/releases/{splited}/web_static/*\
+        run(f"sudo cp -r /data/web_static/releases/{splited}/web_static/*\
                 /data/web_static/releases/{splited}")
         run(f"sudo rm -rf /data/web_static/releases/{splited}/web_static/")
         run(f"sudo rm -rf /data/web_static/releases/{splited}/web_static/")
