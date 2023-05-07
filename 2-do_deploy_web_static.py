@@ -10,8 +10,7 @@ env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
-    """Distribute an archive to the web servers"""
-
+    """distribute an archive tho the webservers"""
     if not os.path.exists(archive_path):
         return False
     name = archive_path.split("/")[-1].split(".")[0]
