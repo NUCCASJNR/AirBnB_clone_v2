@@ -14,7 +14,7 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    splited = archive_path.split(".")[0]
+    splited = archive_path.split("/")[-1].split(".")[0]
     name = archive_path.split("/")[-1]
     if put(archive_path, '/tmp/').failed:
         return False
