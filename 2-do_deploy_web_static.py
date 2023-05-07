@@ -11,8 +11,7 @@ env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
-    """
-        Args:
+    """Args:
             archive_path: path to the archive file
     """
     if os.path.exists(archive_path):
