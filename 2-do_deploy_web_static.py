@@ -10,11 +10,6 @@ from fabric.api import *
 import sys
 
 
-'''env.hosts = os.environ['hosts'].split(',')
-env.passwords = {}
-for i, host in enumerate(env.hosts):
-    env.passwords[host] = os.environ['passwords'].split(',')[i]'''
-
 env.hosts = ['ubuntu@54.87.207.177', 'ubuntu@18.209.180.49']
 env.password = os.environ['password']
 
@@ -24,9 +19,6 @@ def do_deploy(archive_path):
         Args:
             archive_path: path to the archive file
     """
-
-    '''env.host_string = os.environ['hostname']
-    env.password = os.environ['password']'''
     if os.path.exists(archive_path):
         put(archive_path, '/tmp/')
         splited = archive_path.split(".")[0].split('/')[-1]
