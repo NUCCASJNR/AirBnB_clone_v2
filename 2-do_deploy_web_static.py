@@ -12,11 +12,11 @@ env.password = os.environ['password']
 def do_deploy(archive_path):
     """Distribute an archive to the web servers"""
 
+    splited = archive_path.split(".")[0].split("/")[-1]
     if not os.path.exists(archive_path):
         return False
     if put(archive_path, '/tmp/').failed:
         return False
-        splited = archive_path.split(".")[0].split("/")[-1]
     if run("sudo mkdir -p /data/web_static/releases/{}".format(splited))\
             .failed:
         return False
