@@ -8,7 +8,8 @@ from time import strftime
 from fabric.api import *
 
 
-env.hosts = ['ubuntu@54.87.207.177', 'ubuntu@18.209.180.49']
+env.hosts = ['54.87.207.177', '18.209.180.49']
+env.user = ['ubuntu']
 env.password = os.environ['password']
 
 def do_deploy(archive_path):
