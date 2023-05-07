@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""distributes an archive to my web servers using the do_deploy function
+"""
+distributes an archive to my web servers using
+the do_deploy function
+
 """
 
 import os
