@@ -4,7 +4,7 @@
 
 import os
 from time import strftime
-from fabric.api import env, run, put
+from fabric.api import *
 
 
 env.hosts = ['54.87.207.177', '18.209.180.49']
@@ -17,11 +17,12 @@ def do_deploy(archive_path):
             archive_path: path to the archive file
     """
 
-    if os.path.exists(archive_path) is False:
+    if not os.path.exists(archive_path):
         return False
     try:
         put(archive_path, '/tmp/')
-        splited = archive_path.split(".")[0].split('/')[-1]
+        splited = archive_path.split(".")[0].split("/")[-1]
+        print(splited)
         run('sudo mkdir -p /data/web_static/releases/{}'.format(splited))
         run(f'sudo tar -xzvf /tmp/{splited}.tgz -C\
                 /data/web_static/releases/{splited}/')
