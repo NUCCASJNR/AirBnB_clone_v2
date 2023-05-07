@@ -15,7 +15,6 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    try:
         put(archive_path, '/tmp/')
         splited = archive_path.split(".")[0].split("/")[-1]
         run("sudo mkdir -p /data/web_static/releases/{}".format(splited))
@@ -29,6 +28,4 @@ def do_deploy(archive_path):
         run(f"sudo rm -rf /data/web_static/current")
         run("sudo ln -s /data/web_static/releases/{}\
                 /data/web_static/current".format(splited))
-    except Exception:
-        return False
     return True
