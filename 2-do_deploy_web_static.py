@@ -21,7 +21,7 @@ def do_deploy(archive_path):
     if run("sudo mkdir -p /data/web_static/releases/{}".format(splited))\
             .failed:
         return False
-    if run("sudo tar -xzvf /tmp/{}.tgz -C /data/web_static/\
+    if run("sudo tar -xzf /tmp/{}.tgz -C /data/web_static/\
             releases/{}/".format(name, splited)).failed:
         return False
     if run("sudo rm /tmp/{}.tgz".format(name)).failed:
