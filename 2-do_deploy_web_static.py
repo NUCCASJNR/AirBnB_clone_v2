@@ -17,22 +17,23 @@ def do_deploy(archive_path):
     if put(archive_path, '/tmp/').failed:
         return False
         splited = archive_path.split(".")[0].split("/")[-1]
-    if run("sudo mkdir -p /data/web_static/releases/{}".format(splited)):
+    if run("sudo mkdir -p /data/web_static/releases/{}".format(splited))\
+            .failed:
         return False
-    if run("sudo tar -xzvf /tmp/{}.tgz -C\
-                /data/web_static/releases/{}/".format(splited, splited)):
+    if run("sudo tar -xzvf /tmp/{}.tgz -C /data/web_static/\
+            releases/{}/".format(splited, splited)).failed:
         return False
-    if run("sudo rm /tmp/{}.tgz".format(splited)):
+    if run("sudo rm /tmp/{}.tgz".format(splited)).failed:
         return False
     if run("sudo mv /data/web_static/releases/{}/web_static/*\
-                /data/web_static/releases/{}".format(splited, splited)):
+                /data/web_static/releases/{}".format(splited, splited)).failed:
         return False
     if run("sudo rm -rf /data/web_static/releases/\
-            {}/web_static/".format(splited)):
+            {}/web_static/".format(splited)).failed:
         return False
-    if run(f"sudo rm -rf /data/web_static/current"):
+    if run(f"sudo rm -rf /data/web_static/current").failed:
         return False
     if run("sudo ln -s /data/web_static/releases/{}\
-            /data/web_static/current".format(splited)):
+            /data/web_static/current".format(splited)).failed:
         return False
     return True
