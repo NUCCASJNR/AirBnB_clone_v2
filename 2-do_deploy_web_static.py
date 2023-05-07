@@ -73,4 +73,4 @@ def do_deploy(archive_path):
                 /data/web_static/current")
         print(f"New version deployed!")
     else:
-          return False
+        return False
