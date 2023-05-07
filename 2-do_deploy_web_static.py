@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""deploy to my both servers
+"""distributes an archive to my web servers using the do_deploy function
 """
 
 import os
-from time import strftime
 from fabric.api import *
 
 
