@@ -22,7 +22,6 @@ def do_deploy(archive_path):
     try:
         put(archive_path, '/tmp/')
         splited = archive_path.split(".")[0].split("/")[-1]
-        print(splited)
         run('sudo mkdir -p /data/web_static/releases/{}'.format(splited))
         run(f'sudo tar -xzvf /tmp/{splited}.tgz -C\
                 /data/web_static/releases/{splited}/')
@@ -33,7 +32,6 @@ def do_deploy(archive_path):
         run(f"sudo rm -rf /data/web_static/current")
         run(f"sudo ln -s /data/web_static/releases/{splited}\
                 /data/web_static/current")
-        print(f"New version deployed!")
         return True
     except Exception as e:
         return False
