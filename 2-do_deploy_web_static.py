@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """
 distributes an archive to my web servers using
-the do_deploy function
-
-"""
+the do_deploy function"""
 
 import os
 from fabric.api import *
@@ -15,7 +13,8 @@ env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
-    """deploy to the server"""
+    """deploy to the server
+    using do_deploy"""
 
     if not os.path.exists(archive_path):
         return False
