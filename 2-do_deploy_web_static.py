@@ -44,15 +44,19 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    put(archive_path, '/tmp/')
-    split_slash = archive_path.split("/")[-1]
-    remove_tgz = split_slash.split(".")[0]
-    directory = '/data/web_static/releases/'
-    run('mkdir -p {}{}'.format(directory, remove_tgz))
-    run('tar -xzf /tmp/{0}.tgz -C {1}{0}'.format(remove_tgz, directory))
-    run('rm /tmp/{}.tgz'.format(remove_tgz))
-    run('mv {0}{1}/web_static/* {0}{1}'.format(directory, remove_tgz))
-    run('rm -rf {}{}/web_static'.format(directory, remove_tgz))
-    run('rm -rf /data/web_static/current')
-    run('ln -s {}{} /data/web_static/current'.format(directory, remove_tgz))
-    return True
+    try:
+        put(archive_path, '/tmp/')
+        split_slash = archive_path.split("/")[-1]
+        remove_tgz = split_slash.split(".")[0]
+        directory = '/data/web_static/releases/'
+        run('mkdir -p {}{}'.format(directory, remove_tgz))
+        run('tar -xzf /tmp/{0}.tgz -C {1}{0}'.format(remove_tgz, directory))
+        run('rm /tmp/{}.tgz'.format(remove_tgz))
+        run('mv {0}{1}/web_static/* {0}{1}'.format(directory, remove_tgz))
+        run('rm -rf {}{}/web_static'.format(directory, remove_tgz))
+        run('rm -rf /data/web_static/current')
+        run('ln -s {}{}\
+                /data/web_static/current'.format(directory, remove_tgz))
+        return True
+    except Exception as e:
+        return False
