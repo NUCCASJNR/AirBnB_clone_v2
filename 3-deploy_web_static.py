@@ -22,6 +22,7 @@ def do_pack():
     except Exception as a:
         return None
 
+
 def do_deploy(archive_path):
     """distributes an archive to the web servers"""
     if exists(archive_path) is False:
@@ -29,8 +30,8 @@ def do_deploy(archive_path):
     try:
         file_n = archive_path.split("/")[-1]
         no_ext = file_n.split(".")[0]
-       # print(file_n)
-       # print(no_ext)
+        '''print(file_n)
+        print(no_ext)'''
         path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
         run('mkdir -p {}{}/'.format(path, no_ext))
