@@ -6,7 +6,7 @@ from fabric.api import env, put, run
 from time import strftime
 
 env.hosts = ['18.209.180.49', '54.87.207.177']
-env.user = 'ubuntu'
+env.user = "ubuntu"
 env.password = os.environ['password']
 
 
@@ -24,27 +24,28 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """distributes an archive to the web servers"""
-    if exists(archive_path) is False:
+    """
+    Deploys an archive file to the server
+    """
+
+    if not os.path.exists(archive_path):
         return False
     try:
-        file_n = archive_path.split("/")[-1]
-        no_ext = file_n.split(".")[0]
-        '''print(file_n)
-        print(no_ext)'''
-        path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
-        run('mkdir -p {}{}/'.format(path, no_ext))
-        run('tar -xzf /tmp/{} -C {}{}/'.format(file_n, path, no_ext))
-        run('rm /tmp/{}'.format(file_n))
-        run('mv {0}{1}/web_static/* {0}{1}/'.format(path, no_ext))
-        run('rm -rf {}{}/web_static'.format(path, no_ext))
+        split_slash = archive_path.split("/")[-1]
+        remove_tgz = split_slash.split(".")[0]
+        directory = '/data/web_static/releases/'
+        run('mkdir -p {}{}'.format(directory, remove_tgz))
+        run('tar -xzf /tmp/{0}.tgz -C {1}{0}'.format(remove_tgz, directory))
+        run('rm /tmp/{}.tgz'.format(remove_tgz))
+        run('mv {0}{1}/web_static/* {0}{1}'.format(directory, remove_tgz))
+        run('rm -rf {}{}/web_static'.format(directory, remove_tgz))
         run('rm -rf /data/web_static/current')
-        run('ln -s {}{}/ /data/web_static/current'.format(path, no_ext))
+        run('ln -s {}{}\
+                /data/web_static/current'.format(directory, remove_tgz))
         return True
-    except Exception:
+    except Exception as e:
         return False
-
 
 def deploy():
     """Deploys a full archive to the server"""
