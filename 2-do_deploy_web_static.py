@@ -34,12 +34,6 @@ env.password = os.environ['password']
 def do_deploy(archive_path):
     """
     Deploys an archive file to the server
-    Args:
-        archive_path: path to the archive file on the local machine
-                        to be deployed to the server
-    Return:
-        True: on success
-        False: if otherwise
     """
 
     if not os.path.exists(archive_path):
