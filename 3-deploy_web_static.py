@@ -11,9 +11,7 @@ env.password = os.environ['password']
 
 
 def do_pack():
-    """
-    pack prototype
-    """
+    """generate a tgz archive"""
 
     archive_folder = strftime("%Y%m%d%H%M%S")
     try:
