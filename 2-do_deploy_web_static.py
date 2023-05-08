@@ -11,7 +11,6 @@ env.hosts = ['18.209.180.49', '54.87.207.177']
 env.user = 'ubuntu'
 env.password = os.environ['password']
 
-
 def do_deploy(archive_path):
     """distributes an archive to the web servers"""
     if exists(archive_path) is False:
@@ -29,5 +28,6 @@ def do_deploy(archive_path):
         run('rm -rf /data/web_static/current')
         run('ln -s {}{}/ /data/web_static/current'.format(path, no_ext))
         return True
-    except Exception:
+    except:
         return False
+
