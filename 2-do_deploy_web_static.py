@@ -6,7 +6,10 @@ archive to the web servers
 
 from fabric.api import put, run, env
 from os.path import exists
-env.hosts = ['142.44.167.228', '144.217.246.195']
+import os
+env.hosts = ['18.209.180.49', '54.87.207.177']
+env.user = 'ubuntu'
+env.password = os.environ['password']
 
 
 def do_deploy(archive_path):
@@ -16,8 +19,8 @@ def do_deploy(archive_path):
     try:
         file_n = archive_path.split("/")[-1]
         no_ext = file_n.split(".")[0]
-        print(file_n)
-        print(no_ext)
+       # print(file_n)
+       # print(no_ext)
         path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
         run('mkdir -p {}{}/'.format(path, no_ext))
