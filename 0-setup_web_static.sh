@@ -24,6 +24,8 @@ sudo mkdir -p /data/web_static/releases/
 sudo mkdir -p  /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 sudo touch /data/web_static/releases/test/index.html
+sudo touch /var/www/html/404.html
+sudo echo "Ceci n'est pas une page" > /var/www/html/404
 content='<!DOCTYPE html>
 <html lang="en">
         <head>
