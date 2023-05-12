@@ -5,9 +5,9 @@ import os
 from fabric.api import *
 from time import strftime
 
-env.hosts = ['18.209.180.49', '54.87.207.177']
 env.user = "ubuntu"
-env.password = os.environ['password']
+env.hosts = ['18.209.180.49', '58.87.207.177']
+env.password = os.getenv('password')
 
 
 def do_pack():
@@ -46,6 +46,7 @@ def do_deploy(archive_path):
         return True
     except Exception as e:
         return False
+
 
 def deploy():
     """Deploys a full archive to the server"""

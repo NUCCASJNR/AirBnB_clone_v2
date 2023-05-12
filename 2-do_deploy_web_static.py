@@ -26,9 +26,8 @@ xx-web-01 and xx-web-02
 import os
 from fabric.api import *
 
-env.user = os.getenv('user')
-#env.hosts = ['18.209.180.49', '54.87.207.177']
-env.hosts = os.getenv('host1')
+env.user = "ubuntu"
+env.hosts = ['18.209.180.49', '58.87.207.177']
 env.password = os.getenv('password')
 
 
