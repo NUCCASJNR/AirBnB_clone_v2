@@ -20,4 +20,4 @@ def hello():
         Hello HBNB
     """
 
-    return f'Hello HBNB'
+    return f'Hello HBNB!'
