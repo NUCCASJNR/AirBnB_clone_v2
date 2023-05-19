@@ -41,11 +41,8 @@ def text(text):
          “C ” followed by the value of the text
          variable (replace underscore _ symbols with a space
     """
-    if "_" in text:
-        new_str = text.replace('_', ' ')
-        return (f"C {new_str}")
-    else:
-        return (f"C {text}")
+    new_str = text.replace('_', ' ')
+    return (f"C {new_str}")
 
 
 if __name__ == "__main__":
