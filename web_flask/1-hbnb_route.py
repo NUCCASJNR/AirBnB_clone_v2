@@ -20,12 +20,16 @@ def hello():
     Returns:
             A string
     """
-    return ("Hello HBNB!")
+    return f"Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    return ("HBNB")
+    """
+    Returns:
+            A string
+    """
+    return f"HBNB"
 
 
 if __name__ == "__main__":
