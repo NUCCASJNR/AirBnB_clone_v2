@@ -35,7 +35,7 @@ def hbnb():
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def text(text):
+def ctext(text):
     """
     Returns:
          “C ” followed by the value of the text
