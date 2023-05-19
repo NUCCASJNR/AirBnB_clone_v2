@@ -42,8 +42,7 @@ def ctext(text):
          variable (replace underscore _ symbols with a space
     """
     new_str = text.replace('_', ' ')
-    return (f"C {new_str}")
-
+    return "C {}".format(new_str)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=None)
