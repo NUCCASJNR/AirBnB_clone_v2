@@ -8,11 +8,26 @@ import os
 
 env.hosts = ['18.209.180.49', '54.87.207.177']
 env.user = 'ubuntu'
-env.password = os.environ['password']
+env.password = os.getenv('password')
 
 def do_clean(number=0):
+    """Delete out-of-date archives
+
+    Args:
+        number (int): The number of archives to keep
+
+    If number is 0 or 1, keep only the most recent archive. If
+    number is 2, keeps the most and second-most recent archives,
+    etc.
     """
-    Deletes archive files
-    """
-    if number == 0 or number == 1:
+
+    if int(number) == 0:
+        number = 1
+    else:
+        number = int(number)
+    arch = sorted(os.listdir("versions"))
+    for i in range(number):
+        arch.pop()
+    with lcd("versions"):
+        for i in 
 
