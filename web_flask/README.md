@@ -28,4 +28,4 @@
 pip3 install Flask
 ```
 
-![image](https://lh3.googleusercontent.com/qgY3xOKMMYQvQCgnVEKUp5KHgjIfFuWWg3pqeBk6vABHMDaRpedeb__1k4PC081rJh_-JkxX8zbIKScwTHzblKd0GZOsO7it6_z4a5I)
+![image](https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step3.pnghttps://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step3.png)
