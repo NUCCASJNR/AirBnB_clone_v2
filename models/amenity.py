@@ -3,12 +3,12 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String
-
-
-associate = Table('Update'
-class Amenity(BaseModel, Base):
-    __tablename__ = 'amenities'
-    name = Column(String(128), 
+from os import getenv
 
 class Amenity(BaseModel, Base):
-    name = ""
+    if getenv('HBNB_TYPE_STORAGE') == 'db':
+        __tablename__ = 'amenities'
+        name = Column(String(128),
+                nullable=False)
+    else:
+        name = ""
