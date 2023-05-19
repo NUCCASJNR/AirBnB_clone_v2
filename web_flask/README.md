@@ -21,3 +21,11 @@
 [Flask](https://palletsprojects.com/p/flask/)
 
 [jinja](https://jinja.palletsprojects.com/en/2.9.x/templates/)
+
+## Install Flask
+
+```bash
+pip3 install Flask
+```
+
+![image](https://lh3.googleusercontent.com/qgY3xOKMMYQvQCgnVEKUp5KHgjIfFuWWg3pqeBk6vABHMDaRpedeb__1k4PC081rJh_-JkxX8zbIKScwTHzblKd0GZOsO7it6_z4a5I)
