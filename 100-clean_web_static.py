@@ -10,6 +10,7 @@ env.hosts = ['18.209.180.49', '54.87.207.177']
 env.user = 'ubuntu'
 env.password = os.getenv('password')
 
+
 def do_clean(number=0):
     """Delete out-of-date archives
 
@@ -29,5 +30,13 @@ def do_clean(number=0):
     for i in range(number):
         arch.pop()
     with lcd("versions"):
-        for i in 
+        for archive in arch:
+            local("rm {}".format(archive))
 
+    with cd("/data/web_static/releases"):
+        archives = run("ls -tr").split()
+        archives = [a for a in archives if "web_static_" in a]
+        for i in range(number):
+            archives.pop()
+        for archive in archives:
+            run("rm -rf {}".format(archive))
